@@ -78,6 +78,10 @@ int main()
         }
         system("pause");
     }
+    
+    FILE * fp;
+    fp = fopen("Champion.txt","w+");
+    fprintf(fp,"CHAMION IS: %s\n",fighterArray->currentFighter.name);
     printf("CHAMION IS: %s\n",fighterArray->currentFighter.name);
 
     return 0;
