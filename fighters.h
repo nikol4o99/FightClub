@@ -57,5 +57,11 @@ FighterArray * fighterLoad(FighterArray * fightersLoaded)
     fclose(fp);
     return fightersLoaded;
 }
+void memDump(FighterArray * arr,size_t arrSize){
+    for(int i = 0;i<arrSize;i++){
+        arr = arr -> previous;
+        free(arr->next);
+    }
+}
 
 #endif // FIGHTERS_H

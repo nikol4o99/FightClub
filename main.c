@@ -63,6 +63,7 @@ int main()
     FighterArray * fighterArray = NULL;
     fighterArray = (FighterArray *) malloc(sizeof(FighterArray));
     if(fighterArray != NULL) fighterArray  = fighterLoad(fighterArray);
+    FighterArray * forDumping = fighterArray;
     start = fighterArray;
     for(int i=0;i<fighterArraySize-1;i++){
         start = start->previous;
@@ -70,6 +71,7 @@ int main()
     int fsize = (int)fighterArraySize;
     //printf("%s\n\n",start->currentFighter.name);
     while(fsize>=2){
+
         fighterArray = pairing(start,fighterArray,fsize);
         if(fsize%2==0) fsize/=2;
         else{
@@ -78,11 +80,11 @@ int main()
         }
         system("pause");
     }
-    
     FILE * fp;
     fp = fopen("Champion.txt","w+");
     fprintf(fp,"CHAMION IS: %s\n",fighterArray->currentFighter.name);
     printf("CHAMION IS: %s\n",fighterArray->currentFighter.name);
-
+    fclose(fp);
+    memDump(forDumping,1);
     return 0;
 }
